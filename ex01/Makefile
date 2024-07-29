@@ -1,19 +1,21 @@
-NAME	:= 
+NAME	:= phonebook 
 
 CC		:= g++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= 	
+SRCS	:= main.cpp PhoneBook.cpp
+
+CLASSES := PhoneBook.hpp Contacts.hpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) -o $@ -c $< $(FLAGS) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) -o $@ -c $< $(FLAGS) $(CLASSES) && printf "Compiling: $(notdir $<)\n"
 			
 $(NAME): $(OBJS)
-	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) $(CLASSES) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)
