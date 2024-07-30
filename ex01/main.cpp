@@ -6,12 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:40:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/29 17:40:59 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/30 12:53:22 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include "PhoneBook.hpp"
 
 int	main(int ac, char **av)
@@ -20,14 +19,14 @@ int	main(int ac, char **av)
 	PhoneBook phonebook;
 	while (1)
 	{
-		if (ac == 1 && av[1])
+		if (ac == 1)
 		{
 			std::cout << "Please enter ADD,SEARCH or EXIT" << std::endl;
-			std::cin >> input;
+			std::getline(std::cin, input);
 			if (input == "ADD")
 				phonebook.add();
 			else if (input == "SEARCH")
-				std::cout << "You typed search" << std::endl;
+				phonebook.search();
 			else if (input == "EXIT")
 				exit (0);
 			else

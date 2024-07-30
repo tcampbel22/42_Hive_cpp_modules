@@ -6,11 +6,11 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:20:19 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/29 16:49:26 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/30 10:57:26 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<iostream>
+#include <iostream>
 
 class Contacts
 {
