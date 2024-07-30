@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contacts.hpp                                       :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 15:20:19 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/30 10:57:26 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/07/30 17:02:25 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/07/30 17:08:35 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-class Contacts
+class Zombie
 {
+private:
+	std::string	name;
 public:
-	std::string	FirstName;
-	std::string	LastName;
-	std::string	NickName;
-	std::string	PhoneNumber;
-	std::string	Secret; 
+	void	announce(void);
+	Zombie*	newZombie(std::string name);
+	void	RandomChump(std::string);
 };
