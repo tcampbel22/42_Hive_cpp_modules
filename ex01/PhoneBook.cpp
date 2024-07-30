@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 17:29:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/30 13:25:17 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:56:44 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,56 @@
 #include <iomanip>
 #include "PhoneBook.hpp"
 
+
 void	PhoneBook::add()
 {
 	Contacts 	new_contact;
-	std::cout << "Input first name" << std::endl;
-	std::getline(std::cin, new_contact.FirstName);
-	std::cout << "Input last name" << std::endl;
-	std::getline(std::cin, new_contact.LastName);
-	std::cout << "Input nickname" << std::endl;
-	std::getline(std::cin, new_contact.NickName);
-	std::cout << "Input phone number" << std::endl;
-	std::getline(std::cin, new_contact.PhoneNumber);
-	std::cout << "Input your darkest secret" << std::endl;
-	std::getline(std::cin, new_contact.Secret);
-	PhoneBook::contacts[PhoneBook::index] = new_contact;
+
+	while (new_contact.FirstName.empty())
+	{
+		std::cout << "Input first name" << std::endl;
+		std::getline(std::cin, new_contact.FirstName);
+		if (std::cin.eof())
+			throw std::runtime_error("error");
+	}
+	while (new_contact.LastName.empty())
+	{
+		std::cout << "Input last name" << std::endl;
+		std::getline(std::cin, new_contact.LastName);
+		if (std::cin.eof())
+			throw std::runtime_error("error");
+	}
+	while (new_contact.NickName.empty())
+	{
+		std::cout << "Input nickname" << std::endl;
+		std::getline(std::cin, new_contact.NickName);
+		if (std::cin.eof())
+			throw std::runtime_error("error");
+	}
+	while (new_contact.PhoneNumber.empty())
+	{
+		std::cout << "Input phone number" << std::endl;
+		std::getline(std::cin, new_contact.PhoneNumber);
+		if (std::cin.eof())
+			throw std::runtime_error("error");
+	}
+	while (new_contact.Secret.empty())
+	{
+		std::cout << "Input your darkest secret" << std::endl;
+		std::getline(std::cin, new_contact.Secret);
+		if (std::cin.eof())
+			throw std::runtime_error("error");
+	}
 	if (PhoneBook::index < 8)
+	{
+		PhoneBook::contacts[PhoneBook::index] = new_contact;
 		PhoneBook::index++;
+	}
 	else
+	{
 		PhoneBook::index = 0;
+		PhoneBook::contacts[PhoneBook::index] = new_contact;
+	}
 }
 
 std::string PhoneBook::trunc_str(std::string str, int width)
@@ -67,9 +99,11 @@ void	PhoneBook::get_contact(void)
 
 	std::cout << "Enter index" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		throw std::runtime_error("error");
 	if (input.length() == 1 && isdigit(input[0]))
 	{
-		index = stoi(input);
+		index = std::stoi(input);
 		if (index >= 0 && index <= 7)
 			print_contacts(index);
 		else

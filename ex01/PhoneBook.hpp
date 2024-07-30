@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:19:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/30 13:13:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/30 15:38:16 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ public:
 	std::string	trunc_str(std::string str, int width);
 	void		print_contacts(int index);
 	void		get_contact(void);
+	void		get_info(std::string info, std::string prompt);
 };
