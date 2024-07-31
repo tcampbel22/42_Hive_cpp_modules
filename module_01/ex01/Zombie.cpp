@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 15:19:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 14:00:11 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/07/30 17:04:44 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/07/31 13:36:31 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-#ifndef	PHONEBOOK_HPP	 
-#define	PHONEBOOK_HPP
-
-class PhoneBook
+Zombie::Zombie(std::string name)
 {
-private:
-	Contact	contacts[8];
-	int			index = 0;
-public:
-	void		search(void);
-	void		add(void);
-	std::string	trunc_str(std::string str, int width);
-	void		print_contacts(int index);
-	void		get_contact(void);
-	void		get_info(std::string info, std::string prompt);
-};
+	Zombie::name = name;
+}
 
-#endif
+Zombie::~Zombie()
+{
+	std::cout << Zombie::name << " died" << std::endl;
+}
+
+void Zombie::announce(void)
+{
+	std::cout << Zombie::name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+}

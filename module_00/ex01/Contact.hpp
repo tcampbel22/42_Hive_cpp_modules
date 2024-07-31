@@ -6,11 +6,14 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:20:19 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/30 17:12:07 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:55:29 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+#ifndef	CONTACT_HPP	 
+#define	CONTACT_HPP
 
 class Contact
 {
@@ -21,3 +24,5 @@ public:
 	std::string	PhoneNumber;
 	std::string	Secret; 
 };
+
+#endif

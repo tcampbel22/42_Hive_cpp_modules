@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 17:29:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/30 15:56:44 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/31 13:59:29 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 void	PhoneBook::add()
 {
-	Contacts 	new_contact;
+	Contact 	new_contact;
 
 	while (new_contact.FirstName.empty())
 	{

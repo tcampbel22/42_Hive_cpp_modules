@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 15:19:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 14:00:11 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/07/31 10:46:44 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/07/31 13:54:19 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include "Contact.hpp"
+#include "Zombie.hpp"
 
-#ifndef	PHONEBOOK_HPP	 
-#define	PHONEBOOK_HPP
-
-class PhoneBook
+Zombie*	newZombie(std::string name)
 {
-private:
-	Contact	contacts[8];
-	int			index = 0;
-public:
-	void		search(void);
-	void		add(void);
-	std::string	trunc_str(std::string str, int width);
-	void		print_contacts(int index);
-	void		get_contact(void);
-	void		get_info(std::string info, std::string prompt);
-};
+	Zombie* zombptr = new Zombie(name);
+	return (zombptr);
+}
+void	RandomChump(std::string name)
+{
+	Zombie New(name);
+	New.announce();
+}
 
-#endif
+int	main(void)
+{
+	Zombie *newZom;
+	RandomChump("James");
+	newZom = newZombie("Tom");
+	std::cout << "Tom";
+	newZom->announce();
+	delete newZom;
+}

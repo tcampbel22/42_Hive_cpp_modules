@@ -5,7 +5,7 @@ FLAGS	:= -Wextra -Wall -Werror -std=c++11
 
 SRCS	:= main.cpp PhoneBook.cpp
 
-CLASSES := PhoneBook.hpp Contacts.hpp
+CLASSES := PhoneBook.hpp Contact.hpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 

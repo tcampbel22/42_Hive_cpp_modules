@@ -6,11 +6,14 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 17:02:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 12:16:16 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/31 14:02:13 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+#ifndef	ZOMBIE_HPP 
+#define	ZOMBIE_HPP
 
 class Zombie
 {
@@ -21,3 +24,5 @@ public:
 	void	announce(void);	
 	~Zombie();
 };
+
+#endif

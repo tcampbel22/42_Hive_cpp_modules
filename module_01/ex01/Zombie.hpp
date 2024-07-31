@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 15:19:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 14:00:11 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/07/30 17:02:25 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/07/31 13:54:07 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
-#include "Contact.hpp"
 
-#ifndef	PHONEBOOK_HPP	 
-#define	PHONEBOOK_HPP
+#ifndef	ZOMBIE_HPP	 
+#define	ZOMBIE_HPP 
 
-class PhoneBook
+class Zombie
 {
 private:
-	Contact	contacts[8];
-	int			index = 0;
+	std::string	name;
 public:
-	void		search(void);
-	void		add(void);
-	std::string	trunc_str(std::string str, int width);
-	void		print_contacts(int index);
-	void		get_contact(void);
-	void		get_info(std::string info, std::string prompt);
+	Zombie(std::string name);
+	void	announce(void);	
+	~Zombie();
 };
+
+Zombie* zombieHorde(int N, std::string name);
+Zombie*	newZombie(std::string name);
+void	RandomChump(std::string name);
 
 #endif
