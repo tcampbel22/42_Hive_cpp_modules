@@ -3,7 +3,7 @@ NAME	:= zombie_horde
 CC		:= g++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp Zombie.cpp 
+SRCS	:= main.cpp Zombie.cpp zombieHorde.cpp
 
 CLASSES := Zombie.hpp
 		
