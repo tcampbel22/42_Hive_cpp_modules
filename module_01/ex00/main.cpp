@@ -1,28 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 17:04:44 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 12:33:49 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/07/31 10:46:44 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/07/31 12:31:32 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+
+Zombie*	newZombie(std::string name)
 {
-	Zombie::name = name;
+	Zombie* zombptr = new Zombie(name);
+	return (zombptr);
+}
+void	RandomChump(std::string name)
+{
+	Zombie New(name);
+	New.announce();
 }
 
-Zombie::~Zombie()
+int	main(void)
 {
-	std::cout << Zombie::name << " died" << std::endl;
-}
-void Zombie::announce(void)
-{
-	std::cout << Zombie::name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	Zombie *newZom;
+	RandomChump("James");
+	newZom = newZombie("Tom");
+	std::cout << "Tom";
+	newZom->announce();
+	delete newZom;
 }

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 17:02:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/30 17:08:35 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/07/31 12:16:16 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Zombie
 private:
 	std::string	name;
 public:
-	void	announce(void);
-	Zombie*	newZombie(std::string name);
-	void	RandomChump(std::string);
+	Zombie(std::string name);
+	void	announce(void);	
+	~Zombie();
 };
