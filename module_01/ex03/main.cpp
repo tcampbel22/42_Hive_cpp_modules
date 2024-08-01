@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:44:17 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/01 18:35:48 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/08/01 21:08:48 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,28 @@
 
 int main()
 {
+	try
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		{
+			Weapon club = Weapon("crude spiked club");
+			HumanA bob("Bob", club);
+			bob.attack();
+			club.setType("some other type of club");
+			bob.attack();
+		}
+		{
+			Weapon club = Weapon("crude spiked club");
+			HumanB jim("Jim");
+			jim.setWeapon(club);
+			jim.attack();
+			club.setType("some other type of club");
+			jim.attack();
+		}
 	}
+	catch(const std::exception& e)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.attack();
-		jim.setWeapon(club);
-		club.setType("some other type of club");
-		jim.attack();
+		std::cerr << e.what() << '\n';
 	}
+	
 	return 0;
 }
