@@ -3,7 +3,9 @@ NAME	:= violence
 CC		:= g++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp
+SRCS	:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+
+CLASSES := Weapon.hpp HumanA.hpp HumanB.hpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:54:56 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 17:46:56 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/08/01 14:52:57 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@
 class HumanB
 {
 private:
-	Weapon 		WeaponB;
+	Weapon 		*WeaponB;
 	std::string	name;
 public:
 	HumanB();
 	HumanB(const char* name);
-	void attack();
+	void	setWeapon(Weapon &club);
+	void 	attack();
 	~HumanB();
 };
 
