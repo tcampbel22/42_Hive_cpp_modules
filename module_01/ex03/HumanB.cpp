@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:53:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/01 14:53:06 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/08/01 18:35:00 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,23 @@ HumanB::HumanB()
 HumanB::HumanB(const char* name)
 {
 	HumanB::name = name;
+	HumanB::WeaponB = nullptr;
 }
 
 void	HumanB::attack()
 {
-	std::cout << HumanB::name << " attacks with " << HumanB::WeaponB->getType() << std::endl;
+	std::cout << HumanB::name << " attacks with " << HumanB::get_wep_b() << std::endl;
+}
+
+const std::string&	HumanB::get_wep_b()
+{
+	std::string	fists("fists");
+	std::string& ref = fists;
+
+	if (HumanB::WeaponB != nullptr)
+		return (WeaponB->getType());
+	else
+		return (ref);
 }
 
 void	HumanB::setWeapon(Weapon &club)
