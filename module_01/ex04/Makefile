@@ -4,8 +4,6 @@ CC		:= g++
 FLAGS	:= -Wextra -Wall -Werror
 
 SRCS	:= main.cpp
-
-CLASSES :=
 		
 OBJS	:= ${SRCS:.cpp=.o}
 
