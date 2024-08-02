@@ -6,57 +6,67 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:14:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/01 18:06:28 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:59:18 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
+#include <exception>
+
+void	ft_replace(std::string& buffer, std::string s1, std::string s2)
+{
+	size_t	found = 0;
+	
+	while (42)
+	{
+		found = buffer.find(s1);
+		if (found == std::string::npos)
+			break ;
+		buffer.erase(found, s1.length());
+		buffer.insert(found, s2);
+	}
+}
 
 int	main(int ac, char **av)
 {
-	try
-	{
+	
 		if (ac == 4)
 		{
 			std::streampos 	size;
-			size_t			found;
 			std::string filename = av[1];
 			std::string s1 = av[2];
 			std::string s2 = av[3];
-			std::fstream 	fs;
-			fs.open(filename);
-			if (!fs)
-				throw std::runtime_error("Failed to open");
+			std::fstream 	infile;
 			std::ofstream outfile(filename + ".replace");
-			if (!outfile.is_open())
-				throw std::invalid_argument("Invalid argument");
-			fs.seekg(0, std::ios::end);
-			size = fs.tellg();
-			fs.seekg(0, std::ios::beg);
-			std::string	buffer(size, NULL);
-			fs.read(&buffer[0], size);
-			fs.close();
-			while (42)
-			{
-				found = buffer.find(s1);
-				if (found > buffer.length())
-					break ;
-				buffer.erase(found, s1.length());
-				buffer.insert(found, s2);
-			}
 
-			outfile << buffer;
-			outfile.close();
+			infile.exceptions(std::ios_base::badbit | std::ios_base::failbit);
+			outfile.exceptions(std::ios_base::badbit | std::ios_base::failbit);
+			try
+			{
+				infile.open(filename);
+				if (!infile)
+					throw std::runtime_error("Failed to open");
+				if (!outfile.is_open())
+					throw std::invalid_argument("Replace file failed to open");
+				infile.seekg(0, std::ios::end);
+				size = infile.tellg();
+				infile.seekg(0, std::ios::beg);
+				std::string	buffer(size, NULL);
+				infile.read(&buffer[0], size);
+				infile.close();
+				ft_replace(buffer, s1, s2);
+				outfile << buffer;
+				outfile.close();
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << '\n';
+			}
 		}
 		else
 		{
-			std::cerr << "Invalid input" << std::endl;
+			std::cerr << "Invalid argument amount" << std::endl;
 			return (1);
 		}
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
 }

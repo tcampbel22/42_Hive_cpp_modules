@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:53:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/01 21:05:00 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/08/02 10:11:30 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ HumanB::HumanB()
 
 HumanB::HumanB(const char* name)
 {
+	HumanB::WeaponB = nullptr;
 	if (name != NULL)
 		HumanB::name = name;
 	else
 		throw std::invalid_argument("NULL is not a name");
-	HumanB::WeaponB = nullptr;
 }
 
 void	HumanB::attack()
