@@ -1,9 +1,11 @@
-NAME	:= sedIsForLosers 
+NAME	:= harl 
 
 CC		:= g++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp
+SRCS	:= main.cpp harl.cpp
+
+CLASSES	:= harl.hpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 
