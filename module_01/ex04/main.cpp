@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:14:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/02 10:59:18 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/08/06 15:59:12 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	ft_replace(std::string& buffer, std::string s1, std::string s2)
 {
 	size_t	found = 0;
 	
-	while (42)
+	while (42) 	
 	{
-		found = buffer.find(s1);
-		if (found == std::string::npos)
+		found = buffer.find(s1, found);
+		if (found > buffer.length())
 			break ;
 		buffer.erase(found, s1.length());
 		buffer.insert(found, s2);
+		found += s2.length();
 	}
 }
 
@@ -33,12 +34,12 @@ int	main(int ac, char **av)
 	
 		if (ac == 4)
 		{
-			std::streampos 	size;
-			std::string filename = av[1];
-			std::string s1 = av[2];
-			std::string s2 = av[3];
+			std::string 	filename = av[1];
+			std::string 	s1 = av[2];
+			std::string 	s2 = av[3];
 			std::fstream 	infile;
-			std::ofstream outfile(filename + ".replace");
+			std::ofstream 	outfile(filename + ".replace");
+			std::streampos 	size;
 
 			infile.exceptions(std::ios_base::badbit | std::ios_base::failbit);
 			outfile.exceptions(std::ios_base::badbit | std::ios_base::failbit);
@@ -55,7 +56,8 @@ int	main(int ac, char **av)
 				std::string	buffer(size, NULL);
 				infile.read(&buffer[0], size);
 				infile.close();
-				ft_replace(buffer, s1, s2);
+				if (!s1.empty())
+					ft_replace(buffer, s1, s2);
 				outfile << buffer;
 				outfile.close();
 			}

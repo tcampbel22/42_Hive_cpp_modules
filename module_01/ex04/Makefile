@@ -10,10 +10,10 @@ OBJS	:= ${SRCS:.cpp=.o}
 all: $(NAME)
 
 %.o: %.c
-	@$(CC) -o $@ -c $< $(FLAGS) $(CLASSES) && printf "Compiling: $(notdir $<)\n"
+	@$(CC) -o $@ -c $< $(FLAGS) && printf "Compiling: $(notdir $<)\n"
 			
 $(NAME): $(OBJS)
-	@$(CC) $(FLAGS) $(OBJS) $(CLASSES) -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJS)

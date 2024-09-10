@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 17:29:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 13:59:29 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:05:02 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,67 @@
 #include "PhoneBook.hpp"
 
 
+int	PhoneBook::check_digit(std::string str)
+{
+	int		count = 0;
+	
+	for (char c : str)
+	{
+		if (std::isdigit(c))
+			count++;
+	}
+	if (str.length() != count)
+		return (1);
+	return (0);
+}
+
 void	PhoneBook::add()
 {
 	Contact 	new_contact;
+	std::string	str;
 
-	while (new_contact.FirstName.empty())
+	while (new_contact.getFirstName().empty())
 	{
 		std::cout << "Input first name" << std::endl;
-		std::getline(std::cin, new_contact.FirstName);
+		std::getline(std::cin, str);
 		if (std::cin.eof())
 			throw std::runtime_error("error");
+		new_contact.setFirstName(str);
 	}
-	while (new_contact.LastName.empty())
+	while (new_contact.getLastName().empty())
 	{
 		std::cout << "Input last name" << std::endl;
-		std::getline(std::cin, new_contact.LastName);
+		std::getline(std::cin, str);
 		if (std::cin.eof())
 			throw std::runtime_error("error");
+		new_contact.setLastName(str);
 	}
-	while (new_contact.NickName.empty())
+	while (new_contact.getNickName().empty())
 	{
 		std::cout << "Input nickname" << std::endl;
-		std::getline(std::cin, new_contact.NickName);
+		std::getline(std::cin, str);
 		if (std::cin.eof())
 			throw std::runtime_error("error");
+		new_contact.setNickName(str);
 	}
-	while (new_contact.PhoneNumber.empty())
+	while (new_contact.getPhoneNumber().empty())
 	{
 		std::cout << "Input phone number" << std::endl;
-		std::getline(std::cin, new_contact.PhoneNumber);
+		std::getline(std::cin, str);
 		if (std::cin.eof())
 			throw std::runtime_error("error");
+		if (!check_digit(str))
+			new_contact.setPhoneNumber(str);
+		else
+			std::cout << "Enter a valid number" << std::endl;
 	}
-	while (new_contact.Secret.empty())
+	while (new_contact.getSecret().empty())
 	{
 		std::cout << "Input your darkest secret" << std::endl;
-		std::getline(std::cin, new_contact.Secret);
+		std::getline(std::cin, str);
 		if (std::cin.eof())
 			throw std::runtime_error("error");
+		new_contact.setSecret(str);
 	}
 	if (PhoneBook::index < 8)
 	{
@@ -80,13 +103,13 @@ std::string PhoneBook::trunc_str(std::string str, int width)
 
 void	PhoneBook::print_contacts(int index)
 {
-	if (PhoneBook::contacts[index].FirstName.size() != 0)
+	if (PhoneBook::contacts[index].getFirstName().size() != 0)
 	{
-		std::cout << "First Name: " << PhoneBook::contacts[index].FirstName << std::endl;
-		std::cout << "Last Name: " << PhoneBook::contacts[index].LastName << std::endl;
-		std::cout << "Nickname: " << PhoneBook::contacts[index].NickName << std::endl;
-		std::cout << "Phone Number: " << PhoneBook::contacts[index].PhoneNumber << std::endl;
-		std::cout << "Darkest Secret: " << PhoneBook::contacts[index].Secret << std::endl;
+		std::cout << "First Name: " << PhoneBook::contacts[index].getFirstName() << std::endl;
+		std::cout << "Last Name: " << PhoneBook::contacts[index].getLastName() << std::endl;
+		std::cout << "Nickname: " << PhoneBook::contacts[index].getNickName() << std::endl;
+		std::cout << "Phone Number: " << PhoneBook::contacts[index].getPhoneNumber() << std::endl;
+		std::cout << "Darkest Secret: " << PhoneBook::contacts[index].getSecret() << std::endl;
 	}
 	else
 		std::cout << "Index " << index << " is empty" << std::endl;
@@ -126,9 +149,9 @@ void	PhoneBook::search(void)
 	while (++i < 8)
 	{
 		std::cout << std::setw(10) << std::right << i << "|"
-				<< std::setw(10) << std::right << trunc_str(PhoneBook::contacts[i].FirstName, 10) << "|"
-				<< std::setw(10) << std::right << trunc_str(PhoneBook::contacts[i].LastName, 10) << "|"
-				<< std::setw(10) << std::right << trunc_str(PhoneBook::contacts[i].NickName, 10) << std::endl;
+				<< std::setw(10) << std::right << trunc_str(PhoneBook::contacts[i].getFirstName(), 10) << "|"
+				<< std::setw(10) << std::right << trunc_str(PhoneBook::contacts[i].getLastName(), 10) << "|"
+				<< std::setw(10) << std::right << trunc_str(PhoneBook::contacts[i].getNickName(), 10) << std::endl;
 	}
 	get_contact();
 }

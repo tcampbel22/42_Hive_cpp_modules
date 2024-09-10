@@ -1,11 +1,11 @@
-NAME	:= phonebook 
+NAME	:= harl 
 
 CC		:= g++
-FLAGS	:= -Wextra -Wall -Werror -std=c++11
+FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp PhoneBook.cpp Contact.cpp
+SRCS	:= main.cpp harl.cpp
 
-CLASSES := PhoneBook.hpp Contact.hpp
+CLASSES := harl.hpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 

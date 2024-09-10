@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/29 15:19:53 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/10 15:44:23 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/08/05 11:08:00 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/08/06 11:40:43 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef	HARL_HPP
+#define	HARL_HPP
+
 #include <iostream>
-#include <string>
-#include "Contact.hpp"
 
-#ifndef	PHONEBOOK_HPP	 
-#define	PHONEBOOK_HPP
-
-class PhoneBook
+class Harl
 {
 private:
-	Contact	contacts[8];
-	int			index = 0;
+	void	debug(void);
+	void	warning(void);
+	void	info(void);
+	void	error(void);
 public:
-	void		search(void);
-	void		add(void);
-	std::string	trunc_str(std::string str, int width);
-	void		print_contacts(int index);
-	void		get_contact(void);
-	int			check_digit(std::string str);
+	Harl();
+	int		(Harl::*complainPtr)(std::string level);
+	void	complain(std::string level);
+	~Harl();
 };
 
 #endif
