@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/05 11:06:49 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/06 11:40:46 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/08/05 14:17:15 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/09/10 16:22:41 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,10 @@
 
 int	main(void)
 {
-	Harl	harl;
-	
+	Harl harl;
 
-	try
-	{
-		harl.complain("1");
-		harl.complain("2");
-		harl.complain("3");
-		harl.complain("4");
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
 }

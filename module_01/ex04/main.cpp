@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:14:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/06 15:59:12 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/10 16:20:07 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_replace(std::string& buffer, std::string s1, std::string s2)
 			break ;
 		buffer.erase(found, s1.length());
 		buffer.insert(found, s2);
+		found += s2.length();
 		found += s2.length();
 	}
 }
