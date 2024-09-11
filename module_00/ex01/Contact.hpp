@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:20:19 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/10 15:43:00 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:50:29 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 	std::string	Secret;
 public:
 	Contact();
+	
 	void	setFirstName(std::string str);
 	void	setLastName(std::string str);
 	void	setNickName(std::string str);

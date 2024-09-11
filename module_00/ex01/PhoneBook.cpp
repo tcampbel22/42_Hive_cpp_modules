@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 17:29:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/10 16:05:02 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/11 13:57:10 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	PhoneBook::add()
 
 std::string PhoneBook::trunc_str(std::string str, int width)
 {
-	if (str.length() > 9)
+	if (str.length() > 10)
 	{
 		str = str.substr(0, width);
 		str.back() = '.';
@@ -112,7 +112,10 @@ void	PhoneBook::print_contacts(int index)
 		std::cout << "Darkest Secret: " << PhoneBook::contacts[index].getSecret() << std::endl;
 	}
 	else
+	{
 		std::cout << "Index " << index << " is empty" << std::endl;
+		get_contact();
+	}
 }
 
 void	PhoneBook::get_contact(void)
@@ -128,13 +131,13 @@ void	PhoneBook::get_contact(void)
 	{
 		index = std::stoi(input);
 		if (index >= 0 && index <= 7)
+		{
 			print_contacts(index);
-		else
-			std::cout << "Invalid index" << std::endl;
+			return ;
+		}
 	}
-	else
-		std::cout << "Invalid index" << std::endl;
-
+	std::cout << "Invalid index" << std::endl;
+	get_contact();
 }
 
 void	PhoneBook::search(void)
