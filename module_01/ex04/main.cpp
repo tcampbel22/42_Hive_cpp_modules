@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:14:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/10 16:20:07 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/11 14:37:06 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,16 @@ int	main(int ac, char **av)
 			std::string 	s1 = av[2];
 			std::string 	s2 = av[3];
 			std::fstream 	infile;
-			std::ofstream 	outfile(filename + ".replace");
 			std::streampos 	size;
 
-			infile.exceptions(std::ios_base::badbit | std::ios_base::failbit);
-			outfile.exceptions(std::ios_base::badbit | std::ios_base::failbit);
 			try
 			{
 				infile.open(filename);
 				if (!infile)
 					throw std::runtime_error("Failed to open");
+				std::ofstream	outfile(filename + ".replace");
 				if (!outfile.is_open())
-					throw std::invalid_argument("Replace file failed to open");
+					throw std::invalid_argument("Replace file failed to be opened/created");
 				infile.seekg(0, std::ios::end);
 				size = infile.tellg();
 				infile.seekg(0, std::ios::beg);
