@@ -1,6 +1,6 @@
 NAME	:= sedIsForLosers 
 
-CC		:= g++
+CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
 
 SRCS	:= main.cpp

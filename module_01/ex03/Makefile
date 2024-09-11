@@ -1,6 +1,6 @@
 NAME	:= violence 
 
-CC		:= g++
+CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
 
 SRCS	:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
