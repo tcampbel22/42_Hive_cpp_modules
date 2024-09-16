@@ -4,14 +4,12 @@ CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
 
 SRCS	:= main.cpp harl.cpp
-
-CLASSES	:= harl.hpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	@$(CC) -o $@ -c $< $(FLAGS) && printf "Compiling: $(notdir $<)\n"
 			
 $(NAME): $(OBJS)

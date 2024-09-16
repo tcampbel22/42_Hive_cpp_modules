@@ -9,7 +9,7 @@ OBJS	:= ${SRCS:.cpp=.o}
 
 all: $(NAME)
 
-%.o: %.c
+%.o: %.cpp
 	@$(CC) -o $@ -c $< $(FLAGS) && printf "Compiling: $(notdir $<)\n"
 			
 $(NAME): $(OBJS)

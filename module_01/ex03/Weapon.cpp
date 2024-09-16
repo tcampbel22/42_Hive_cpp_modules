@@ -6,37 +6,23 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:46:22 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/01 20:59:42 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:13:39 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon()
+Weapon::Weapon(std::string club)
 {
+	Weapon::type = club;
 }
 
-Weapon::Weapon(const char* club)
+void	Weapon::setType(std::string type)
 {
-	if (club != NULL)
-		Weapon::type = club;
-	else 
-		throw std::invalid_argument("Weapon does not exist");
-}
-
-void	Weapon::setType(const char *type)
-{
-	if (type != NULL)
-		Weapon::type = type;
-	else
-		throw std::invalid_argument("Failed to set type");
+	Weapon::type = type;
 }
 
 const std::string& Weapon::getType()
 {
 	return (Weapon::type);
-}
-
-Weapon::~Weapon()
-{
 }

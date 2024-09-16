@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:52:56 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/08/01 14:58:05 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/11 14:59:08 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,7 @@ private:
 	Weapon& 	WeaponA;
 	std::string	name;
 public:
-	HumanA();
-	HumanA(const char* name, Weapon& weapon);
+	HumanA(std::string new_name, Weapon& weapon);
 	void attack();
-	~HumanA();
 };
 #endif

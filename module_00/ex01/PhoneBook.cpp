@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 17:29:43 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/11 13:57:10 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:44:37 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	PhoneBook::check_digit(std::string str)
 {
-	int		count = 0;
+	size_t		count = 0;
 	
 	for (char c : str)
 	{
@@ -86,6 +86,7 @@ void	PhoneBook::add()
 	{
 		PhoneBook::index = 0;
 		PhoneBook::contacts[PhoneBook::index] = new_contact;
+		PhoneBook::index++;
 	}
 }
 
@@ -145,6 +146,11 @@ void	PhoneBook::search(void)
 	int			i;
 
 	i = -1;
+		if (contacts[0].getFirstName().empty())
+	{
+		std::cout << "Phonebook is empty" << std::endl;
+		return ;
+	}
 	std::cout << std::setw(10) << std::left << "Index" << "|"
 				<< std::setw(10) << std::left << "First Name" << "|"
 				<< std::setw(10) << std::left << "Last Name" << "|"

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 15:40:13 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 13:58:52 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/16 12:36:32 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 int	main(int ac, char **av)
 {
-	std::string	input;
-	PhoneBook phonebook;
 	try
 	{
+		std::string	input;
+		PhoneBook phonebook;
 		while (1)
 		{
-			if (ac == 1)
+			if (ac == 1 && av[0])
 			{
 				std::cout << "Please enter ADD,SEARCH or EXIT" << std::endl;
 				std::getline(std::cin, input);
