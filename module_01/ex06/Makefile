@@ -1,9 +1,9 @@
-NAME	:= harlfilter 
+NAME	:= harlFilter 
 
 CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp harl.cpp
+SRCS	:= main.cpp harl_filter.cpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 

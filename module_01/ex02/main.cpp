@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:11:15 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 16:30:20 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/17 16:31:30 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 	std::string& stringREF = string;
 
 	std::cout << "string_mem = " << &string << std::endl;
-	std::cout << "stringptr_mem = " << &stringPTR << std::endl;
+	std::cout << "stringptr_mem = " << stringPTR << std::endl;
 	std::cout << "stringref_mem = " << &stringREF << std::endl;
 	std::cout << "string_val = " << string << std::endl;
 	std::cout << "stringptr_val = " << *stringPTR << std::endl;
