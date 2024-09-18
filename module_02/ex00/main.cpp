@@ -1,26 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 16:53:45 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/18 15:53:03 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/09/18 13:42:40 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/09/18 13:42:41 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "Weapon.hpp"
-#include <iostream>
-
-HumanA::HumanA(std::string new_name, Weapon& weapon) : WeaponA(weapon), name(new_name){
-}
-
-void	HumanA::attack()
-{
-	std::cout << HumanA::name << " attacks with " << HumanA::WeaponA.getType() << std::endl;
-}
-
-HumanA::~HumanA(){
-}

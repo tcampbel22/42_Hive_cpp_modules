@@ -6,13 +6,16 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:53:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/16 11:38:31 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:47:29 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 #include <iostream>
+
+HumanB::HumanB(){
+}
 
 HumanB::HumanB(std::string name)
 {
@@ -22,21 +25,16 @@ HumanB::HumanB(std::string name)
 
 void	HumanB::attack()
 {
-		std::cout << HumanB::name << " attacks with " << get_wep_b() << std::endl;
-}
-
-const std::string&	HumanB::get_wep_b()
-{
-	std::string	fists("fists");
-	std::string& ref = fists;
-
 	if (HumanB::WeaponB != nullptr)
-		return (WeaponB->getType());
+		std::cout << HumanB::name << " attacks with " << WeaponB->getType() << std::endl;
 	else
-		return (ref);
+		std::cout << HumanB::name << " attacks with fists" << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon &club)
 {
 	HumanB::WeaponB = &club;
+}
+
+HumanB::~HumanB(){
 }

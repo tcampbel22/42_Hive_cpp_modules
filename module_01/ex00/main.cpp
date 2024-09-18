@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 10:46:44 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/07/31 12:31:32 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/18 11:42:33 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Zombie*	newZombie(std::string name)
 {
-	Zombie* zombptr = new Zombie(name);
+	Zombie *zombptr = new Zombie(name);
 	return (zombptr);
 }
 void	RandomChump(std::string name)
@@ -29,8 +29,7 @@ int	main(void)
 {
 	Zombie *newZom;
 	RandomChump("James");
-	newZom = newZombie("Tom");
-	std::cout << "Tom";
+	newZom = newZombie("Elias");
 	newZom->announce();
 	delete newZom;
 }

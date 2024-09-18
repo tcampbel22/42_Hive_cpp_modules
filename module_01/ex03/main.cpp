@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:44:17 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/16 11:45:20 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:42:58 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 			bob.attack();
 		}
 		{
-			Weapon club = Weapon("crude spiked club");
+			Weapon club = Weapon("crude hello");
 			HumanB jim("Jim");
 			jim.setWeapon(club);
 			jim.attack();

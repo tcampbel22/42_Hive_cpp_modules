@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:14:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/11 14:37:06 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/18 15:34:08 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 				infile.seekg(0, std::ios::end);
 				size = infile.tellg();
 				infile.seekg(0, std::ios::beg);
-				std::string	buffer(size, NULL);
+				std::string	buffer(size, '\0');
 				infile.read(&buffer[0], size);
 				infile.close();
 				if (!s1.empty())

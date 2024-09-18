@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 16:53:45 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/18 15:53:03 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/09/18 13:43:59 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/09/18 13:55:20 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "Weapon.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
+
 #include <iostream>
 
-HumanA::HumanA(std::string new_name, Weapon& weapon) : WeaponA(weapon), name(new_name){
-}
-
-void	HumanA::attack()
+class Fixed
 {
-	std::cout << HumanA::name << " attacks with " << HumanA::WeaponA.getType() << std::endl;
-}
+private:
+	int 		fp_num = 0;
+	const int	frac_num = 0;
+public:
+	Fixed();
+	Fixed(const Fixed& copy);
+	~Fixed();
+	int getRawBits(void) const;
+	void setRawBits(int const raw);
+};
 
-HumanA::~HumanA(){
-}
+#endif
