@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 16:44:17 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/18 15:42:58 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/18 16:00:15 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
 			bob.attack();
 		}
 		{
-			Weapon club = Weapon("crude hello");
+			Weapon club = Weapon("sword");
 			HumanB jim("Jim");
 			jim.setWeapon(club);
 			jim.attack();
@@ -37,7 +37,7 @@ int main()
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << e.what() << std::endl;
 	}
 	
 	return 0;
