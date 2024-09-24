@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:43:51 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/24 12:23:48 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:10:28 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Fixed::Fixed(const Fixed& copy) : fp_num(copy.fp_num) {}
 
 
 // COPY ASSIGNMENT OPERATOR
-Fixed&	Fixed::operator=(const Fixed& other){ this->fp_num = other.getRawBits(); return (*this); }
+Fixed&	Fixed::operator=(const Fixed& other){ this->fp_num = other.fp_num; return (*this); }
 
 
 // DESTRUCTOR
@@ -41,7 +41,6 @@ Fixed::~Fixed(){}
 							/* GETTERS & SETTERS */
 // GETTER
 int		Fixed::getRawBits(void) const { return (fp_num); }
-
 
 // SETTER
 void	Fixed::setRawBits(int const raw) { fp_num = raw; }
@@ -60,7 +59,7 @@ int		Fixed::toInt(void) const { return fp_num >> frac_bits; }
 							/* OPERATOR OVERLOADS */
 
 // OUT STREAM OVERLOAD (<<)
-std::ostream& operator<<(std::ostream& stream, Fixed const& fixed) { return stream << fixed.getRawBits(); }
+std::ostream& operator<<(std::ostream& stream, Fixed const& fixed) { return stream << fixed.toFloat(); }
 
 							/* BASIC ARITHMETIC */
 							
@@ -91,22 +90,28 @@ Fixed&	Fixed::operator/(const Fixed& other)
 							/* COMPARISON */
 							
 bool	Fixed::operator<(const Fixed& other) { return (this->fp_num < other.fp_num) ? true : false; }
+bool	Fixed::operator>(const Fixed& other) { return (this->fp_num > other.fp_num) ? true : false; }
 bool	Fixed::operator<=(const Fixed& other){ return (this->fp_num <= other.fp_num) ? true : false; }
-bool	Fixed::operator>(const Fixed& other){ return (this->fp_num > other.fp_num) ? true : false; }
 bool	Fixed::operator>=(const Fixed& other){ return (this->fp_num >= other.fp_num) ? true : false; }
 bool	Fixed::operator==(const Fixed& other){ return (this->fp_num == other.fp_num) ? true : false; }
 bool	Fixed::operator!=(const Fixed& other){ return (this->fp_num != other.fp_num) ? true : false; }
 
-// 							/* INCREMENT/DECREMENT */
+							/* INCREMENT/DECREMENT */
 
-// Fixed&	Fixed::operator++(){}
-// Fixed&	Fixed::operator++(int flag){}
-// Fixed&	Fixed::operator--(){}
-// Fixed&	Fixed::operator--(int flag){}
+Fixed	Fixed::operator++(int) { Fixed temp = *this; fp_num++; return temp; }
 
-// 							/* MIN / MAX */
+Fixed&	Fixed::operator++() { ++this->fp_num; return *this; }
 
-// int&	Fixed::max(int& num1, int& num2){ (num1 > num2) ? num1 : num2; }
-// int&	Fixed::min(int& num1, int& num2){ (num1 > num2) ? num2 : num1; }
-// static int&	min(const int& num1, const int& num2){ (num1 > num2) ? num2 : num1; }
-// static int&	max(const int& num1, const int& num2){ (num1 > num2) ? num1 : num2; }
+Fixed	Fixed::operator--(int) { Fixed temp = *this; fp_num--; return temp; }
+
+Fixed&	Fixed::operator--() { --this->fp_num; return *this; }
+
+							/* MIN / MAX */
+
+Fixed&	Fixed::min(Fixed& num1, Fixed& num2){ return (num1.fp_num > num2.fp_num) ? num2 : num1; }
+
+Fixed&	Fixed::max(Fixed& num1, Fixed& num2) { return (num1.fp_num > num2.fp_num) ? num1 : num2; }
+
+const Fixed&	Fixed::min(const Fixed& num1, const Fixed& num2){ return (num1.fp_num > num2.fp_num) ? num2 : num1; }
+
+const Fixed&	Fixed::max(const Fixed& num1, const Fixed& num2) { return (num1.fp_num > num2.fp_num) ? num1 : num2; }
