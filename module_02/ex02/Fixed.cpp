@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:43:51 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/23 17:31:00 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:23:48 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,34 +64,38 @@ std::ostream& operator<<(std::ostream& stream, Fixed const& fixed) { return stre
 
 							/* BASIC ARITHMETIC */
 							
-Fixed&	Fixed::operator+()
+Fixed&	Fixed::operator+(const Fixed& other)
 {
-	this->fp_num *= 1;
+	this->fp_num = this->fp_num + other.fp_num;
 	return *this;
 }
 
-Fixed&	Fixed::operator-()
+Fixed&	Fixed::operator-(const Fixed& other)
 {
-	this->fp_num *= -1;
+	this->fp_num = this->fp_num - other.fp_num;
 	return *this;
 }
 
 Fixed&	Fixed::operator*(const Fixed& other)
 {
-	this->fp_num = this->toInt() * other.toInt();
+	this->fp_num = (this->fp_num * other.fp_num) >> frac_bits;
 	return (*this);
 }
 
-// Fixed&	Fixed::operator/(const Fixed& other){}
+Fixed&	Fixed::operator/(const Fixed& other)
+{
+	this->fp_num = (this->fp_num << frac_bits) / other.fp_num;
+	return (*this);
+}
 
-// 							/* COMPARISON */
+							/* COMPARISON */
 							
-// bool	Fixed::operator<(const Fixed& other) {}
-// bool	Fixed::operator<=(const Fixed& other){}
-// bool	Fixed::operator>(const Fixed& other){}
-// bool	Fixed::operator>=(const Fixed& other){}
-// bool	Fixed::operator==(const Fixed& other){}
-// bool	Fixed::operator!=(const Fixed& other){}
+bool	Fixed::operator<(const Fixed& other) { return (this->fp_num < other.fp_num) ? true : false; }
+bool	Fixed::operator<=(const Fixed& other){ return (this->fp_num <= other.fp_num) ? true : false; }
+bool	Fixed::operator>(const Fixed& other){ return (this->fp_num > other.fp_num) ? true : false; }
+bool	Fixed::operator>=(const Fixed& other){ return (this->fp_num >= other.fp_num) ? true : false; }
+bool	Fixed::operator==(const Fixed& other){ return (this->fp_num == other.fp_num) ? true : false; }
+bool	Fixed::operator!=(const Fixed& other){ return (this->fp_num != other.fp_num) ? true : false; }
 
 // 							/* INCREMENT/DECREMENT */
 

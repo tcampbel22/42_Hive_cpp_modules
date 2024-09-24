@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:43:59 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/23 17:25:38 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/24 12:23:26 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ public:
 	// Operator Overloads
 	
 	Fixed&		operator=(const Fixed& other);
-	Fixed&		operator+();
-	Fixed&		operator-();
+	Fixed&		operator+(const Fixed & other);
+	Fixed&		operator-(const Fixed& other);
 	Fixed&		operator*(const Fixed& other);
-	// Fixed&		operator/(const Fixed& other);
-	// bool		operator<(const Fixed& other);
-	// bool		operator<=(const Fixed& other);
-	// bool		operator>(const Fixed& other);
-	// bool		operator>=(const Fixed& other);
-	// bool		operator==(const Fixed& other);
-	// bool		operator!=(const Fixed& other);
+	Fixed&		operator/(const Fixed& other);
+	bool		operator<(const Fixed& other);
+	bool		operator<=(const Fixed& other);
+	bool		operator>(const Fixed& other);
+	bool		operator>=(const Fixed& other);
+	bool		operator==(const Fixed& other);
+	bool		operator!=(const Fixed& other);
 	// Fixed&		operator++();
 	// Fixed&		operator++(int flag);
 	// Fixed&		operator--();
