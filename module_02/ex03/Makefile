@@ -1,4 +1,4 @@
-NAME	:= fixed_01 
+NAME	:= bsp 
 
 CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror

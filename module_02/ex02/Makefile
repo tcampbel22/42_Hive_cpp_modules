@@ -1,4 +1,4 @@
-NAME	:= fixed 
+NAME	:= fixed_02 
 
 CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
