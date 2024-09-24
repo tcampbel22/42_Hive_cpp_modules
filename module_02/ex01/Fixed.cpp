@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 13:43:51 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/23 15:28:19 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/24 15:05:31 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(const Fixed& copy) : fp_num(copy.fp_num) { std::cout << "Copy const
 
 
 //copy assignment operator
-Fixed&	Fixed::operator=(const Fixed& other){ this->fp_num = other.getRawBits(); return (*this); }
+Fixed&	Fixed::operator=(const Fixed& other){ this->fp_num = other.fp_num; return (*this); }
 
 
 //destructor
@@ -53,7 +53,4 @@ int		Fixed::toInt(void) const { return fp_num >> frac_bits; }
 
 
 // << operator overload
-std::ostream& operator<<(std::ostream& stream, Fixed const& fixed)
-{
-	return stream << fixed.getRawBits();
-}
+std::ostream& operator<<(std::ostream& stream, Fixed const& fixed) { return stream << fixed.toFloat(); }
