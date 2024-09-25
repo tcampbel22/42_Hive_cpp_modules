@@ -3,7 +3,7 @@ NAME	:= bsp
 CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp Fixed.cpp
+SRCS	:= main.cpp Fixed.cpp Point.cpp Bsp.cpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 
