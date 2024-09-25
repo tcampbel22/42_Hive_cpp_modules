@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.hpp                                          :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 15:30:52 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/25 16:01:50 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/09/25 16:11:25 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/09/25 16:32:22 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_HPP
-#define POINT_HPP
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-#include "Fixed.hpp"
 #include <iostream>
-#include <cmath>
 
-class Point
+class ClapTrap
 {
 private:
-	Fixed const x;
-	Fixed const y;
-	
+	std::string 	name;
+	unsigned int	hitPoints;
+	unsigned int	energyPoints;
+	unsigned int	attackDamage;
+
 public:
-	Point();
-	Point(float x, float y);
-	Point(const Point& copy);
-	Point&	operator=(const Point& other);
-	float	getX() const;
-	float	getY() const;
-	~Point();
+	ClapTrap();
+	ClapTrap(std::string new_name);
+	ClapTrap(const ClapTrap& copy);
+	~ClapTrap();
+	ClapTrap&	operator=(const ClapTrap& other);
+	void attack(const std::string& target);
+	void takeDamage(unsigned int amount);
+	void beRepaired(unsigned int amount);
 };
 
-bool 		bsp( Point const a, Point const b, Point const c, Point const point);
-float		tri_area(float aX, float aY, float bX, float bY, float cX, float cY);
 #endif
