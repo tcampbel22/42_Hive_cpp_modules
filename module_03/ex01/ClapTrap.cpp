@@ -6,13 +6,13 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:15:02 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/26 11:20:37 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:53:50 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name("ClapTrap"), hitPoints(10), energyPoints(10), attackDamage(0) {}
+ClapTrap::ClapTrap() : name("ClapTrap"), hitPoints(10), energyPoints(10), attackDamage(0) {std::cout << "ClapTrap default constructor" << std::endl;}
 
 ClapTrap::ClapTrap(std::string new_name) : name(new_name), hitPoints(10), energyPoints(2), attackDamage(0) {}
 
@@ -74,4 +74,4 @@ void ClapTrap::beRepaired(unsigned int amount)
 }
 
 
-ClapTrap::~ClapTrap(){}
+ClapTrap::~ClapTrap(){ std::cout << "ClapTrap destructor" << std::endl; }
