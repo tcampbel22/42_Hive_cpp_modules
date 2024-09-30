@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:57:33 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/30 14:13:50 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/30 15:44:05 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int	main()
 	ClapTrap Alex("Alex");
 	ScavTrap Debbie("Debbie");
 	ScavTrap Tom("Tom");
-	ScavTrap Heidi;
 
 	std::cout << "\nDebbie HP: " << Debbie.getHitPoints() << " | EP: " << Debbie.getEnergyPoints() << " | Attack Damage: " << Debbie.getAttackPoints() << std::endl;
 	std::cout << "Tom    HP: " << Tom.getHitPoints() << " | EP: " << Tom.getEnergyPoints() << " | Attack Damage: " << Tom.getAttackPoints() << std::endl;
@@ -29,7 +28,7 @@ int	main()
 	Debbie.takeDamage(0);
 	Tom.attack("Debbie");
 	Debbie.takeDamage(20);
-	Debbie.beRepair(15);
+	Debbie.beRepaired(15);
 	Tom.attack("Alex");
 	Alex.takeDamage(11);
 	Alex.beRepaired(20);

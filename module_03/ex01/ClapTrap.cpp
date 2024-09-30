@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 16:15:02 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/30 15:32:35 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/30 15:42:08 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ClapTrap::ClapTrap() : name("ClapTrap"), hitPoints(10), energyPoints(10), attack
 
 ClapTrap::ClapTrap(std::string new_name) : name(new_name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
-	std::cout << "ClapTrap name constructor" << std::endl;
+	std::cout << "ClapTrap " << name << " constructor" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& copy)

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 13:50:01 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/30 15:33:01 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/09/30 15:43:28 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(std::string new_name)
 	setHitPoints(100);
 	setEnergyPoints(50);
 	setAttackPoints(20);
-	std::cout << name << " constuctor called" << std::endl;
+	std::cout << "ScavTrap " << name << " constructor called" << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap& copy) 

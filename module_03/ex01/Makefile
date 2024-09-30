@@ -1,4 +1,4 @@
-NAME	:= scapTrap 
+NAME	:= scavTrap 
 
 CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
