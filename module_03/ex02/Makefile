@@ -1,9 +1,9 @@
-NAME	:= scapTrap 
+NAME	:= fragTrap 
 
 CC		:= c++
 FLAGS	:= -Wextra -Wall -Werror
 
-SRCS	:= main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS	:= main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 		
 OBJS	:= ${SRCS:.cpp=.o}
 

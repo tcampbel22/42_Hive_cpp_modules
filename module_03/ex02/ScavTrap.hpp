@@ -1,43 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 16:11:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/30 14:09:48 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/09/26 13:40:32 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/09/30 14:59:21 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
-
-#include <iostream>
+#pragma once
+#include "ClapTrap.hpp"
 #define UINT_MAX 4294967295
-class ClapTrap
-{
-protected:
-	std::string 	name;
-	unsigned int	hitPoints;
-	unsigned int	energyPoints;
-	unsigned int	attackDamage;
 
+class ScavTrap : public ClapTrap
+{
 public:
-	ClapTrap();
-	ClapTrap(std::string new_name);
-	ClapTrap(const ClapTrap& copy);
-	~ClapTrap();
-	ClapTrap&	operator=(ClapTrap& other);
+	ScavTrap();
+	ScavTrap(std::string new_name);
+	ScavTrap(ScavTrap& copy);
+	~ScavTrap();
+	ScavTrap& operator=(ScavTrap& other);
+	std::string&	getName();
 	unsigned int	getHitPoints();
 	unsigned int	getEnergyPoints();
 	unsigned int	getAttackPoints();
+	void			setName(std::string new_name);
 	void			setHitPoints(unsigned int points);
 	void			setEnergyPoints(unsigned int points);
 	void			setAttackPoints(unsigned int points);
 	void			attack(const std::string& target);
-	void			takeDamage(unsigned int amount);
-	void			beRepaired(unsigned int amount);
+	void			beRepaired(unsigned int points);
+	void			takeDamage(unsigned int points);
+	void 			guardGate();
 };
-
-#endif
