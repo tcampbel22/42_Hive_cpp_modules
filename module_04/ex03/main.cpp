@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:29:20 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/03 11:51:51 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:22:00 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "IMateriaSource.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
 
 int main()
 {
