@@ -1,22 +1,28 @@
-NAME	:= AbstractAnimal
+NAME	:= AMateria
 
 CC		:= c++
-FLAGS	:= -Wextra -Wall -Werror
+FLAGS	:= -Wextra -Wall -Werror -g
 
-SRCS	:= main.cpp Ice.cpp Cure.cpp ICharacter.cpp Amateria.cpp
+OBJ_DIR := Objects
+
+SRCS	:= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 		
-OBJS	:= ${SRCS:.cpp=.o}
+OBJS	:= $(addprefix $(OBJ_DIR)/, ${SRCS:.cpp=.o})
+
 
 all: $(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	@$(CC) -o $@ -c $< $(FLAGS) && printf "Compiling: $(notdir $<)\n"
 			
 $(NAME): $(OBJS)
 	@$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean:
-	@rm -rf $(OBJS)
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
 	@rm -rf $(NAME)

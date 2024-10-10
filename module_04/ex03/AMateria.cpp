@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 11:46:21 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 16:25:37 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/10/10 13:49:29 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/10/10 16:41:49 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include <iostream>
 #include "AMateria.hpp"
 
+AMateria::AMateria() {}
 
-class Cure : public AMateria
+AMateria::AMateria(std::string const& type) : type(type) {}
+
+AMateria::AMateria(const AMateria& copy) { this->type = copy.type; }
+
+const AMateria& AMateria::operator=(const AMateria& other) 
 {
-public:
-	Cure();
-	Cure(const Cure& copy);
-	const Cure& operator=(const Cure& other);
-	~Cure();
-	std::string	const&	getType() const;
-	virtual AMateria* clone() const override;
-	virtual void use(ICharacter& target) override;
-};
+	this->type = other.type;
+	return *this; 	
+}
+
+std::string	const& AMateria::getType() const { return type; }
+
+AMateria::~AMateria() {}

@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 15:30:52 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/09/25 16:01:50 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:32:34 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ public:
 
 bool 		bsp( Point const a, Point const b, Point const c, Point const point);
 float		tri_area(float aX, float aY, float bX, float bY, float cX, float cY);
+
 #endif

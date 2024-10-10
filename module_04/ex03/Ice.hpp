@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:39:47 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/03 11:57:34 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/10 16:25:43 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ public:
 	const Ice& operator=(const Ice& other);
 	~Ice();
 	std::string	const&	getType() const;
-	virtual AMateria* clone() const override;
-	virtual void use(ICharacter& target) override;
+	AMateria* clone() const override;
+	void use(ICharacter& target) override;
 };
