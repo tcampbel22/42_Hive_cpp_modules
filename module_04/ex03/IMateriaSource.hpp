@@ -6,13 +6,13 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:49:24 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 16:07:16 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:48:47 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-// #include <iostream>
+#include <iostream>
 #include "AMateria.hpp"
 
 class AMateria;

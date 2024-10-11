@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:36:01 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 16:31:33 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:34:54 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 #include <iostream>
 #include "ICharacter.hpp"
+#include "Floor.hpp"
 
 class ICharacter;
+class Floor;
 
 class AMateria
 {

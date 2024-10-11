@@ -6,29 +6,25 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:59:29 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 17:29:04 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:12:30 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "ICharacter.hpp"
 #include "AMateria.hpp"
+#include "Floor.hpp"
+#include "ICharacter.hpp"
 
-struct floor 
-{
-	AMateria* unequipped; 
-	floor* next; 
-};
+class Floor;
 
 class Character : public ICharacter
 {
 private:
 	std::string	name;
 	AMateria*	inventory[4];
-	floor*		head;
-	int			count = 0;
+	Floor*		floor;		
 public:
 	Character();
 	Character(const Character& copy);

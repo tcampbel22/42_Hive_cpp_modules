@@ -5,7 +5,7 @@ FLAGS	:= -Wextra -Wall -Werror -g
 
 OBJ_DIR := Objects
 
-SRCS	:= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
+SRCS	:= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp Floor.cpp
 		
 OBJS	:= $(addprefix $(OBJ_DIR)/, ${SRCS:.cpp=.o})
 

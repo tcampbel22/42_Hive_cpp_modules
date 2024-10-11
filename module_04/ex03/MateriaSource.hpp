@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:52:56 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 16:23:16 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:10:44 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class MateriaSource : public IMateriaSource
 {
 protected:
 	AMateria*	Materias_inv[4];
-	int			count = 0;
 public:
 	MateriaSource();
 	MateriaSource(const MateriaSource& copy);

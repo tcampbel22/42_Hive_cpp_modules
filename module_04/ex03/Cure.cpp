@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 12:18:25 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 16:41:15 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:31:21 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ Cure::~Cure() {}
 
 std::string	const&	Cure::getType() const { return type; }
 
-AMateria* Cure::clone() const 
-{
-	AMateria *clone = new Cure(*this);
-	return clone;
-}
+AMateria* Cure::clone() const { return new Cure(); }
 
 void Cure::use(ICharacter& target)
 {

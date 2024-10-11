@@ -1,28 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   Floor.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/03 11:43:49 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/11 13:57:23 by tcampbel         ###   ########.fr       */
+/*   Created: 2024/10/11 10:51:18 by tcampbel          #+#    #+#             */
+/*   Updated: 2024/10/11 13:47:49 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "AMateria.hpp"
 #include <iostream>
+#include "AMateria.hpp"
+#include "Character.hpp"
 
 class AMateria;
+class Character;
 
-class ICharacter
+struct Node
 {
+	AMateria* item;
+	Node* next;
+};
+
+class Floor
+{
+protected:
+	Node* head;
 public:
-	virtual ~ICharacter() {}
-	virtual std::string const & getName() const = 0;
-	virtual void equip(AMateria* m) = 0;
-	virtual void unequip(int idx) = 0;
-	virtual void use(int idx, ICharacter& target) = 0;
+	 Floor();
+	 Floor(const Floor& copy);
+	 ~Floor();
+	 const Floor& operator=(const Floor& other);
+	 void	listAddNode(AMateria* item);
+	 void	listRemove();
+	 void	listDisplay();
 };

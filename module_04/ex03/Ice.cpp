@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 11:44:29 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/10 16:35:40 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:31:25 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,7 @@ Ice::~Ice() {}
 
 std::string	const&	Ice::getType() const { return type; }
 
-AMateria* Ice::clone() const 
-{
-	AMateria *clone = new Ice();
-	return clone;	
-}
+AMateria* Ice::clone() const {  return new Ice(); }
 
 void Ice::use(ICharacter& target) 
 {
