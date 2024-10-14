@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 17:23:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/14 16:32:00 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:44:08 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,34 @@ Character::Character(const Character& copy) : name(copy.name)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (inventory[i] != nullptr)
+		if (copy.inventory[i] != nullptr)
 			inventory[i] = copy.inventory[i]->clone();
 		else
 			inventory[i] = nullptr;
 	}
+	this->floor =  new Floor();
 }
 
 const Character&	Character::operator=(const Character& other)
 {
-	for (int i = 0; i < 4; i++)
+	if (this != &other)
 	{
-		delete inventory[i];
-		inventory[i] = nullptr;
-	}
-	for (int i = 0; i < 4; i++)
-	{
-		if (inventory[i] != nullptr)
-			inventory[i] = other.inventory[i]->clone();
-		else
+		for (int i = 0; i < 4; i++)
+		{
+			delete inventory[i];
 			inventory[i] = nullptr;
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			if (other.inventory[i] != nullptr)
+				this->inventory[i] = other.inventory[i]->clone();
+			else
+				this->inventory[i] = nullptr;
+		}
+		this->name = other.name;
+		delete floor;
+		this->floor = new Floor();
 	}
-	this->name = other.name;
 	return *this;
 }
 
@@ -110,7 +116,7 @@ void Character::unequip(int idx)
 	{
 		if (floor)
 			floor->listAddNode(inventory[idx]);
-		std::cout << "Unequipped " << inventory[idx]->getType() << " materia in slot [" << idx << "]\n";
+		std::cout << name << " unequipped " << inventory[idx]->getType() << " materia in slot [" << idx << "]\n";
 		inventory[idx]->setOwner(nullptr); 
 		inventory[idx] = nullptr;
 		
@@ -121,7 +127,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx <= 3 && inventory[idx] != nullptr && inventory[idx]->getOwner() == this)
+	if (idx >= 0 && idx <= 3 && inventory[idx] != nullptr)
 		inventory[idx]->use(target);
 	else
 		std::cout << name << " cannot use materia\n";
