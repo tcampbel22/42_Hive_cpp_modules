@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 11:29:20 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/14 17:56:26 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/14 17:59:05 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,6 @@ int main()
 	me->equip(tmp);
 	
 	
-		std::cout << "\n****USING COPY CONSTRUCTOR **** \n\n";
-	ICharacter* copy = new Character(*dynamic_cast<Character*>(me));
-	copy->use(0, *me);
-	copy->unequip(2);
-	copy->use(2, *me);
-	me->use(2, *copy);
-
 	std::cout << "\n****INVALID MATERIA TYPE **** \n\n";
 	AMateria* tmp2;
 	tmp2 = src->createMateria("iced");
@@ -66,17 +59,11 @@ int main()
 	me->equip(tmp);
 	
 	
-	std::cout << "\n****NEW CHARACTER'S EQUIPPING AND USING MATERIA**** \n\n";
+	std::cout << "\n****NEW CHARACTER EQUIPPING AND USING MATERIA**** \n\n";
 
-	ICharacter* copy2 = new Character("tom");
 	tmp = src->createMateria("cure");
 	bob->equip(tmp);
 	bob->use(0, *me);
-	
-	*dynamic_cast<Character*>(copy2) = *dynamic_cast<Character*>(bob);
-	copy2->use(0, *bob);
-	copy2->unequip(0);
-	bob->use(0, *copy2);
 	
 	std::cout << "\n****FIRST CHARACTER USING MATERIA**** \n\n";
 	me->use(0, *bob);
@@ -94,6 +81,9 @@ int main()
 	
 	std::cout << "\n****ATTEMPT TO USE MATERIA THAT HAS BEEN UNEQUIPPED**** \n\n";
 	me->use(0, *bob);
+	
+	
+	std::cout << "\n****USING COPY CONSTRUCTOR AND OVERLOADS**** \n\n";
 	
 	Character *tim = new Character("tim");
 	tmp = src->createMateria("ice");
@@ -127,8 +117,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-	delete copy;
-	delete copy2;
 	delete tim;
 	delete thomas;
 	delete dave;
