@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:37:06 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/11 12:29:26 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/14 13:25:38 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int main()
 	Dog f(p);
 	Cat l;
 	Cat g(l);
+	Dog *a = new Dog();
+	Dog *b = new Dog();
+	*a = *b;
 	for (int i = 0; i < SIZE; i++)
 		(i % 2) ? array[i] = new Dog() : array[i] = new Cat();
 	for (int i = 0; i < SIZE; i++)
@@ -34,9 +37,12 @@ int main()
 
 	g.makeSound();
 	f.makeSound();
+	a->makeSound();
 
 	for (int i = 0; i < SIZE; i++)
 		delete array[i];
-
+	
+	delete a;
+	delete b;
 	return 0;
 }

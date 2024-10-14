@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 17:23:26 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/11 17:25:57 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:32:00 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,56 +58,71 @@ const Character&	Character::operator=(const Character& other)
 	return *this;
 }
 
-//delete linked list and pointers to all unequipped items
+std::string const & Character::getName() const { return name; }
+
 Character::~Character()
 {
+	for (int i = 0; i < 4; i++)
+	{
+		if (inventory[i] != nullptr)
+		{
+			delete inventory[i];
+			inventory[i] = nullptr;
+		}
+	}
 	if (floor)
 		delete floor;
 }
 
-std::string const & Character::getName() const { return name; }
 
-void Character::equip(AMateria* m) //Add materia to both the inventory and linked list
+void Character::equip(AMateria* m)
 {
-	for (int i = 0; i < 4; i++)
+	if (m == nullptr)
+		return ;
+	if (m->getOwner() != nullptr && m->getOwner() != this)
 	{
-		if (m == nullptr || m == inventory[i])
-		{
-			std::cout << "Cannot equip\n"; 
-			return ;
-		}
+		std::cout << "Materia is already equipped by someone else!\n";
+		return ;
 	}
 	for (int i = 0; i < 4; i++)
 	{
 		if (inventory[i] == nullptr)
 		{
 			inventory[i] = m;
-			std::cout << "Equipped " << m->getType() << " in slot [" << i << "]\n";
+			m->setOwner(this);
+			std::cout << name << " equipped " << m->getType() << " in slot [" << i << "]\n";
+			return ;
+		}
+		else if (m == inventory[i])
+		{
+			std::cout << "You have already equipped this materia\n"; 
 			return ;
 		}
 	}
 	if (floor)
 		floor->listAddNode(m);
-	std::cout << "Inventory is full!\n";
+	std::cout << "Inventory is full! Adding " << m->getType() << " materia to the floor\n";
 }
 
-void Character::unequip(int idx) //Remove the item from the inventory array
+void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx <= 3 && inventory[idx] != nullptr)
 	{
 		if (floor)
 			floor->listAddNode(inventory[idx]);
+		std::cout << "Unequipped " << inventory[idx]->getType() << " materia in slot [" << idx << "]\n";
+		inventory[idx]->setOwner(nullptr); 
 		inventory[idx] = nullptr;
+		
 	}
 	else
-		std::cout << "Unable to unequip item!\n";
+		std::cout << "Unable to unequip item! Item in slot [" << idx << "] does not exist...\n";
 } 
 
-void Character::use(int idx, ICharacter& target) //Somehow use the derived classes use functions
+void Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx <= 3 && inventory[idx] != nullptr)
+	if (idx >= 0 && idx <= 3 && inventory[idx] != nullptr && inventory[idx]->getOwner() == this)
 		inventory[idx]->use(target);
 	else
-		std::cout << "Materia cannot be used\n";
-		
+		std::cout << name << " cannot use materia\n";
 }

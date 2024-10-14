@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:26:23 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/02 16:16:46 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:17:46 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,13 @@ Dog::Dog(Dog& copy) : Animal(copy)
 
 Dog&	Dog::operator=(Dog& other)
 {
-	std::cout << "Dog assignment op\n";
-	this->type = other.type;
-	delete brain;
-	this->brain = new Brain(*other.brain);
+	std::cout << "Dog assignment operator\n";
+	if (this != &other)
+	{
+		this->type = other.type;
+		delete brain;
+		this->brain = new Brain(*other.brain);
+	}
 	return *this;	
 }
 

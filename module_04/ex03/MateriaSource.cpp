@@ -6,7 +6,7 @@
 /*   By: tcampbel <tcampbel@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 14:26:35 by tcampbel          #+#    #+#             */
-/*   Updated: 2024/10/11 18:10:28 by tcampbel         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:38:31 by tcampbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ MateriaSource::MateriaSource(const MateriaSource& copy)
 
 const MateriaSource& MateriaSource::operator=(const MateriaSource& other) 
 {
-	for (int i = 0; i < 4; i++)
-		this->Materias_inv[i] = other.Materias_inv[i];
+	if (this != &other)
+	{
+		for (int i = 0; i < 4; i++)
+			this->Materias_inv[i] = other.Materias_inv[i];
+	}
 	return *this;
 }
 
@@ -59,9 +62,10 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 		if (Materias_inv[i]->getType().compare("ice") == 0 && type.compare("ice") == 0)
 		{
 			std::cout << type + " materia created\n";
-			return Materias_inv[i]->clone(); //creates temp instance of the object to call clone method
+			
+			return Materias_inv[i]->clone();
 		}
-		else if (Materias_inv[i]->getType() == type == 0 && type.compare("cure") == 0)
+		else if (Materias_inv[i]->getType().compare("cure") == 0 && type.compare("cure") == 0)
 		{
 			std::cout << type + " materia created\n";
 			return Materias_inv[i]->clone();
